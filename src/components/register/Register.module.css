@@ -58,7 +58,7 @@
   border: none;
   width: calc(100% - 20px);
 }
-.signUpFailedError {
+.registerFailedError {
   color: rgba(255, 99, 72, 1);
   font-size: 0.8rem;
   padding: 0;

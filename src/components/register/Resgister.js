@@ -11,15 +11,29 @@ function Register() {
   const [registerFailedError, setRegisterFailedError] = useState("");
   const history = useHistory();
 
-  //   useEffect(() => {
-  //     if (localStorage.getItem("accessToken") !== null) {
-  //       const path = "dashboard";
-  //       history.push(path);
-  //       return;
-  //     }
-  //   }, []);
+  useEffect(() => {
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      const path = "admin";
+      history.push(path);
+      return;
+    }
+  }, []);
 
-  const handleRegister = () => {};
+  const handleRegister = () => {
+    if (userName === "" || password === "") {
+      setRegisterFailedError("atleast enter username and password");
+      return;
+    }
+    localStorage.setItem(
+      "loginCredentials",
+      JSON.stringify({
+        userName: userName,
+        password: password,
+      })
+    );
+    const path = "login";
+    history.push(path);
+  };
   return (
     <div className={styles.registerContainer}>
       <div className={styles.register}>

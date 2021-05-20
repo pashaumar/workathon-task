@@ -8,13 +8,13 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loginFailedError, setLoginFailedError] = useState("");
 
-  //   useEffect(() => {
-  //     if (localStorage.getItem("accessToken") !== null) {
-  //       const path = "dashboard";
-  //       history.push(path);
-  //       return;
-  //     }
-  //   }, []);
+  useEffect(() => {
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      const path = "admin";
+      history.push(path);
+      return;
+    }
+  }, []);
 
   const history = useHistory();
 
@@ -23,6 +23,15 @@ function Login() {
       setLoginFailedError("You don't have account, please register");
       return;
     }
+    if (
+      userName !== getLoginCredentials.userName ||
+      password !== getLoginCredentials.password
+    ) {
+      setLoginFailedError("Invalid crednetials");
+    }
+    localStorage.setItem("isLoggedIn", true);
+    const path = "admin";
+    history.push(path);
   };
   return (
     <div className={styles.LoginContainer}>
@@ -33,9 +42,9 @@ function Login() {
         <div className={styles.LoginInput}>
           <div className={styles.userName}>
             <input
-              type="email"
-              name="email"
-              placeholder="Email"
+              type="text"
+              name="userName"
+              placeholder="User Name"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
             />

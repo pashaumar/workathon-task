@@ -1,0 +1,32 @@
+.adminContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.sidebarAndContentWrapper{
+    flex: 1;
+    display: flex;
+    position: relative;
+}
+.sidebar{
+    width: 200px;
+    height: 100%;
+}
+.content{
+    padding: 20px;
+    flex: 1;
+}
+@media screen and (max-width: 425px) {
+    #showSidebar {
+      position: fixed;
+      width: 200px;
+      transform: translateX(0);
+      transition: all 0.5s ease-in-out;
+    }
+    #hideSidebar {
+      position: fixed;
+      width: 200px;
+      transform: translateX(-200px);
+      transition: all 0.5s ease-in-out;
+    }
+  }

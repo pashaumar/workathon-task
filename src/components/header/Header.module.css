@@ -1,0 +1,43 @@
+.showSidebarArrow{
+    display: none;
+}
+.header{
+    display: flex;
+    background-color: whitesmoke;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.header h1{
+    margin: 5px 0;
+    padding: 10px 0;
+}
+.dropDown{
+    position: relative;
+}
+.dropDown button{
+    cursor: pointer;
+}
+.dropDownContent{
+    position: absolute;
+    right: 30px;
+    width: 150px;
+    top: 0;
+    background-color: whitesmoke;  
+    border: 1px solid black;
+    z-index: 1000;
+}
+.dropDownContent div{
+    color: black;
+    border-bottom: 3px solid white;
+    width: calc(100% - 10px);
+    padding: 8px 5px;
+    cursor: pointer;
+}
+@media screen and (max-width: 425px){
+    .showSidebarArrow{
+        display: block;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
+}
